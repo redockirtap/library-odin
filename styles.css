@@ -74,14 +74,15 @@ button:hover {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 0.5rem 10rem;
-  padding: 0 2rem;
+  margin: 1rem 10rem;
+  padding: 1 2rem;
   border-radius: 6px;
   background-color: rgb(60, 60, 60);
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.305);
 }
 
 .card {
+  margin: 1rem 0;
   height: clamp(6rem, 8rem, 10rem);
   width: clamp(5rem, 7rem, 9rem);
   border-radius: 6px;
