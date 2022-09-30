@@ -24,6 +24,74 @@ body {
   flex-direction: column;
 }
 
+.modal {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: #3a2020;
+  border-radius: 6px;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  min-width: 330px;
+  width: 20vw; /* Could be more or less, depending on screen size */
+}
+
+form > input[type="text"] {
+  display: block;
+  margin: 1px 0;
+  color: bisque;
+  background-color: #3a2020;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.584);
+  min-width: 8vw;
+  width: 15vw;
+}
+
+form > input[type="text"]:focus {
+  border-bottom: 3px solid rgb(255, 182, 94);
+}
+
+label {
+  line-height: 1.5;
+  padding-bottom: 1rem;
+}
+
+button[type='submit'] {
+  text-decoration-line: underline;
+  margin-top: 14px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(255, 182, 94);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 footer {
   text-align: center;
 }
