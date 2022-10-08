@@ -43,20 +43,26 @@ const addTheBook = function () {
 const displayCard = function () {
     const wrapper = document.querySelector('.wrapper');
     const card = document.createElement('div');
-    const closeBtn = document.createElement('div');
+    const deleteBtn = document.createElement('button');
     const cardInfo = document.createElement('div');
+    const readBook = document.createElement('button');
+
     card.className = `cards card-${counter}`;
-    closeBtn.className = 'card-close';
+    deleteBtn.className = 'card-delete';
     cardInfo.className = "card-info";
-    closeBtn.textContent = '×';
+    readBook.className = 'read-info'
+
+    deleteBtn.textContent = '🗑';
     cardInfo.innerText = `Book ${counter} 
     "${booksArray.at(-1).name}",
     ${booksArray.at(-1).author},
     ${booksArray.at(-1).isRead}`;
-    card.appendChild(closeBtn);
+    readBook.textContent = 'READ';
+    
+    card.appendChild(deleteBtn);
     card.appendChild(cardInfo);
+    card.appendChild(readBook);
     wrapper.appendChild(card);
-
 }
 
 const eventListeners = function () {

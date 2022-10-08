@@ -142,6 +142,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  /* overflow-x: scroll; */
   gap: 1rem;
   margin: 1rem 10rem;
   padding: 1 2rem;
@@ -151,33 +152,63 @@ button:hover {
 }
 
 .cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow-wrap: break-word;
-  overflow-y: auto;
+  /* overflow-x: hidden; */
+  /* resize: vertical; */
   margin: 1rem 0;
-  padding: 0.5rem 0.5rem;
+  padding: 0;
   height: clamp(6rem, 8rem, 10rem);
   width: clamp(5rem, 7rem, 9rem);
   border-radius: 6px;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.305);
-  background-color: rgba(42, 47, 40, 0.788);
+  background-color: rgb(42, 47, 40);
   text-align: center;
   transition: 0.5s;
 }
 
 .cards:hover {
   box-shadow: 3px 3px 3px rgba(255, 255, 0, 0.288);
+  /* cursor: pointer; */
+  /* width: 10rem;
+  height: 12rem; */
 }
 
-.card-close { 
+.card-delete { 
   text-align: center;
   position: sticky;
-  top: 0px;
+  top: 0;
+  color: rgb(101, 112, 235);
+  background-color: rgb(42, 47, 40);
+  padding: 0 2.5rem;
+  border-bottom: 1px solid #888;
   /* z-index: 1; */
   /* background-color: black; */
-  width: 15px;
+  /* height: 2px;
+  width: 15px; */
 }
 
+/* .card-close:hover {
+  background-color: black;
+} */
+
 .card-info {
-  position: relative;
-  bottom: 5px;
+  overflow-y: auto;
+  padding: 0 0.5rem;
+  cursor: default;
+  /* margin: 0 0.5rem; */
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  
+}
+
+.read-info {
+  position: sticky;
+  background-color: rgb(42, 47, 40);
+  border-top: 1px solid #888;
+  bottom: 0px;
+  padding: 0 2rem;
 }
