@@ -2,16 +2,15 @@ const booksArray = [];
 const addBookButton = document.querySelector('.add-book');
 const modal = document.querySelector('.modal');
 const submitButton = document.querySelector('.submit-btn');
-// const deleteButton = document.querySelector('.card-delete');
 let counter = 0;
 
 function Book(name, author, isRead) {
     this.name = name
     this.author = author
     this.isRead = isRead
-    this.info = function () {
-        return `${name}, ${author}, ${isRead}.`
-    }
+    // this.info = function () {
+    //     return `${name}, ${author}, ${isRead}.`
+    // }
 }
 
 const openModal = function () {
@@ -46,24 +45,26 @@ const displayCard = function () {
     const card = document.createElement('div');
     const deleteBtn = document.createElement('button');
     const cardInfo = document.createElement('div');
-    const readBook = document.createElement('button');
+    const readBtn = document.createElement('button');
+    const finishedBook = booksArray.at(-1).isRead;
 
     card.className = `cards card-${counter}`;
     deleteBtn.className = 'card-delete';
     cardInfo.className = "card-info";
-    readBook.className = 'read-info'
+    readBtn.className = finishedBook === 'read' ? 'read-book' : 'unread-book';
 
     deleteBtn.textContent = '🗑';
     cardInfo.innerText = `"${booksArray.at(-1).name}",
     ${booksArray.at(-1).author}`;
-    readBook.textContent = 'READ';
+    readBtn.textContent = finishedBook === 'read' ? 'READ' : 'UNREAD';
 
     card.appendChild(deleteBtn);
     card.appendChild(cardInfo);
-    card.appendChild(readBook);
+    card.appendChild(readBtn);
     wrapper.appendChild(card);
 
     deleteBtn.addEventListener('click', deleteCard);
+    readBtn.addEventListener('click', changeReadStatus);
 }
 
 const deleteCard = function (e) {
@@ -76,22 +77,32 @@ const deleteCard = function (e) {
     console.log(counter);
     console.log(booksArray);
     theDeleteButton.parentElement.remove();
-
-    
 }
 
 const changeIndex = function (item, index, bookIndex) {
-    // console.log(item, index, bookIndex);
     const card = document.querySelector(`.cards.card-${index}`);
-    // console.log(card)
     if (index > bookIndex) {
         console.log(`I am card ${index}`);
         card.className = `cards card-${index-1}`;
     }
 }
 
+const changeReadStatus = function (e) {
+    let readStatus = e.target.innerText;
+    const bookIndex = Number(e.target.parentElement.className.slice(-1));
+    if (readStatus === 'READ') {
+        this.textContent = 'UNREAD';
+        this.className = 'unread-book';
+        booksArray[bookIndex].isRead = 'unread';
+    } else {
+        this.textContent = 'READ';
+        this.className = 'read-book';
+        booksArray[bookIndex].isRead = 'read';
+    }
+    console.log(booksArray[bookIndex].isRead);
+}
+
 const eventListeners = function () {
-    // const deleteButton = document.querySelector('.card-delete');
     addBookButton.addEventListener('click', openModal);
     window.addEventListener('click', closeModal);
     submitButton.addEventListener('click', addTheBook);
