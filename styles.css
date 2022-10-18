@@ -231,3 +231,13 @@ button:hover {
   bottom: 0px;
   padding: 0 2rem;
 }
+
+.unread-book {
+  background-color: rgb(42, 47, 40);
+  background-color: rgba(249, 0, 91, 0.427);
+  color: rgb(255, 55, 55);
+}
+
+.unread-book:hover {
+  color: rgba(255, 0, 0, 0.678);
+}
