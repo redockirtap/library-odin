@@ -63,6 +63,12 @@ form > input[type="text"]:focus {
   border-bottom: 3px solid rgb(255, 182, 94);
 }
 
+form > input[type="radio"] {
+  accent-color: red;
+  background-color: #3a2020;
+  color: #3a2020;
+}
+
 label {
   line-height: 1.5;
   padding-bottom: 1rem;
@@ -155,8 +161,9 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-wrap: break-word;
-  /* overflow-x: hidden; */
+  /* overflow-wrap: break-word; */
+  overflow-x: hidden;
+  /* white-space: nowrap; */
   /* resize: vertical; */
   margin: 1rem 0;
   padding: 0;
@@ -180,10 +187,12 @@ button:hover {
   text-align: center;
   position: sticky;
   top: 0;
-  color: rgb(101, 112, 235);
+  color: bisque;
   background-color: rgb(42, 47, 40);
   padding: 0 2.5rem;
   border-bottom: 1px solid #888;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   /* z-index: 1; */
   /* background-color: black; */
   /* height: 2px;
@@ -195,9 +204,17 @@ button:hover {
 } */
 
 .card-info {
-  overflow-y: auto;
+  /* overflow-y: auto; */
+  display: -webkit-box;
+  /* display: inline; */
   padding: 0 0.5rem;
   cursor: default;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  /* overflow-x: hidden; */
   /* margin: 0 0.5rem; */
   /* white-space: nowrap;
   overflow: hidden;
@@ -206,6 +223,8 @@ button:hover {
 }
 
 .read-info {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   position: sticky;
   background-color: rgb(42, 47, 40);
   border-top: 1px solid #888;
