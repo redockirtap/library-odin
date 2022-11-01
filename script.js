@@ -4,13 +4,21 @@ const modal = document.querySelector('.modal');
 const submitButton = document.querySelector('.submit-btn');
 let counter = 0;
 
-function Book(name, author, isRead) {
-    this.name = name
-    this.author = author
-    this.isRead = isRead
-    // this.info = function () {
-    //     return `${name}, ${author}, ${isRead}.`
-    // }
+// function Book(name, author, isRead) {
+//     this.name = name
+//     this.author = author
+//     this.isRead = isRead
+//     // this.info = function () {
+//     //     return `${name}, ${author}, ${isRead}.`
+//     // }
+// }
+
+class Book {
+    constructor(name, author, isRead) {
+        this.name = name
+        this.author = author
+        this.isRead = isRead
+    }
 }
 
 const openModal = function () {
